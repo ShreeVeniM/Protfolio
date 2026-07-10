@@ -85,17 +85,56 @@
   }
 
   .hero-left { flex: 1; position: relative; z-index: 1; }
-  .hero-right {
+  .hero-photo-wrap {
     position: relative; z-index: 1;
     flex-shrink: 0;
-    width: 280px; height: 280px;
+    width: 340px; height: 340px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .hero-right {
+    position: relative; z-index: 2;
+    width: 320px; height: 320px;
     border-radius: 50%;
     overflow: hidden;
-    border: 3px solid var(--accent);
-    box-shadow: 0 0 60px rgba(155,93,229,0.3);
+    box-shadow: 0 0 70px rgba(155,93,229,0.35);
     background: var(--card);
     display: flex; align-items: center; justify-content: center;
     color: var(--muted); font-size: 0.85rem; text-align: center;
+  }
+
+  .photo-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(2px);
+    opacity: 0.85;
+    z-index: 1;
+    animation: orbFloat 6s ease-in-out infinite;
+  }
+  .orb-1 {
+    width: 46px; height: 46px;
+    background: radial-gradient(circle at 35% 35%, var(--accent), transparent 70%), var(--accent);
+    top: -6px; right: 4px;
+    box-shadow: 0 0 30px rgba(155,93,229,0.6);
+    animation-delay: 0s;
+  }
+  .orb-2 {
+    width: 30px; height: 30px;
+    background: radial-gradient(circle at 35% 35%, var(--accent3), transparent 70%), var(--accent3);
+    bottom: 18px; left: -10px;
+    box-shadow: 0 0 24px rgba(254,228,64,0.5);
+    animation-delay: 1.5s;
+  }
+  .orb-3 {
+    width: 22px; height: 22px;
+    background: radial-gradient(circle at 35% 35%, var(--accent2), transparent 70%), var(--accent2);
+    bottom: -8px; right: 60px;
+    box-shadow: 0 0 20px rgba(0,187,249,0.5);
+    animation-delay: 3s;
+  }
+  @keyframes orbFloat {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-14px) translateX(6px); }
   }
 
   .hero-right img {
@@ -473,6 +512,8 @@
     nav { padding: 0 1.5rem; }
     .nav-links { display: none; }
     #hero { flex-direction: column-reverse; padding: 6rem 1.5rem 3rem; gap: 2rem; }
+    .hero-photo-wrap { width: 200px; height: 200px; }
     .hero-right { width: 180px; height: 180px; }
+    .photo-orb { display: none; }
     #expertise, #experience, #projects, #education, #testimonials, #contact { padding: 3rem 1.5rem; }
   }
