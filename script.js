@@ -5,15 +5,19 @@
     glow.style.top = e.clientY + 'px';
   });
 
-  // Fade in on scroll
+  // Fade in on scroll (progressive enhancement — content is visible by default in CSS;
+  // only elements this JS reaches get opted into the hidden/reveal animation)
+  const fadeEls = document.querySelectorAll('.fade-up');
+  fadeEls.forEach(el => el.classList.add('js-ready'));
   const observer = new IntersectionObserver(entries => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
         setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  fadeEls.forEach(el => observer.observe(el));
 
   // Project filter
   function filterProjects(category, btn) {
