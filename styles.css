@@ -88,13 +88,13 @@
   .hero-photo-wrap {
     position: relative; z-index: 1;
     flex-shrink: 0;
-    width: 340px; height: 340px;
+    width: 420px; height: 420px;
     display: flex; align-items: center; justify-content: center;
   }
 
   .hero-right {
     position: relative; z-index: 2;
-    width: 320px; height: 320px;
+    width: 400px; height: 400px;
     border-radius: 50%;
     overflow: hidden;
     box-shadow: 0 0 70px rgba(155,93,229,0.35);
