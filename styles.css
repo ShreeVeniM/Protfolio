@@ -453,12 +453,12 @@
     border-top: 1px solid var(--border);
   }
 
-  /* ── FADE IN ── */
+  /* ── FADE IN (progressive enhancement — visible by default, JS opts elements into the animation) ── */
   .fade-up {
-    opacity: 0; transform: translateY(24px);
     transition: opacity 0.55s ease, transform 0.55s ease;
   }
-  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  .fade-up.js-ready { opacity: 0; transform: translateY(24px); }
+  .fade-up.js-ready.visible { opacity: 1; transform: translateY(0); }
 
   /* ── GLOW ── */
   .cursor-glow {
