@@ -32,12 +32,4 @@
     });
   }
 
-  // Resume download placeholder
-  document.getElementById('resume-link').addEventListener('click', e => {
-    e.preventDefault();
-    alert('Resume PDF coming soon! Please email mshreeveni@gmail.com to request a copy.');
-  });
-  document.getElementById('resume-btn').addEventListener('click', e => {
-    e.preventDefault();
-    alert('Resume PDF coming soon! Please email mshreeveni@gmail.com to request a copy.');
-  });
+  // Resume buttons now link directly to the PDF (see index.html), no JS needed.
