@@ -258,12 +258,24 @@
     padding: 0 1.4rem;
   }
   .accordion-item.open .accordion-body {
-    max-height: 200px;
+    max-height: 260px;
     padding: 0 1.4rem 1.2rem 1.4rem;
   }
-  .accordion-body p {
-    font-size: 0.85rem; color: var(--muted); line-height: 1.7;
+  .accordion-body ul {
+    list-style: none;
     padding-left: calc(38px + 0.9rem);
+  }
+  .accordion-body li {
+    position: relative;
+    font-size: 0.85rem; color: var(--muted); line-height: 1.6;
+    padding-left: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .accordion-body li:last-child { margin-bottom: 0; }
+  .accordion-body li::before {
+    content: ''; position: absolute; left: 0; top: 0.55rem;
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--accent);
   }
 
   /* ── EXPERIENCE ── */
