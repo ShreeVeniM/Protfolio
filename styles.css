@@ -209,27 +209,60 @@
     margin-bottom: 3rem; line-height: 1.7;
   }
 
-  .expertise-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1rem;
+  /* ── EXPERTISE ACCORDION ── */
+  .accordion-list {
+    display: flex; flex-direction: column;
+    gap: 0.75rem; max-width: 800px;
   }
 
-  .expertise-card {
+  .accordion-item {
     background: var(--card); border: 1px solid var(--border);
-    border-radius: 0.75rem; padding: 1.5rem;
-    transition: border-color 0.2s, transform 0.2s;
+    border-radius: 0.75rem; overflow: hidden;
+    transition: border-color 0.25s;
   }
-  .expertise-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .accordion-item.open { border-color: var(--accent); }
 
-  .expertise-icon {
-    width: 44px; height: 44px; border-radius: 0.5rem;
-    background: rgba(155,93,229,0.15);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.3rem; margin-bottom: 1rem;
+  .accordion-header {
+    width: 100%; display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 1.4rem;
+    background: none; border: none; cursor: pointer;
+    font-family: inherit; color: var(--text);
+    text-align: left;
   }
-  .expertise-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem; }
-  .expertise-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.7; }
+
+  .accordion-title { display: flex; align-items: center; gap: 0.9rem; font-weight: 600; font-size: 1rem; }
+
+  .accordion-icon {
+    width: 38px; height: 38px; border-radius: 0.55rem; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.05rem;
+  }
+  .icon-1 { background: rgba(155,93,229,0.18); }
+  .icon-2 { background: rgba(0,187,249,0.18); }
+  .icon-3 { background: rgba(254,228,64,0.18); }
+  .icon-4 { background: rgba(155,93,229,0.18); }
+  .icon-5 { background: rgba(0,187,249,0.18); }
+  .icon-6 { background: rgba(254,228,64,0.18); }
+
+  .accordion-chevron {
+    font-size: 1.3rem; color: var(--muted);
+    transition: transform 0.25s;
+  }
+  .accordion-item.open .accordion-chevron { transform: rotate(180deg); color: var(--accent); }
+
+  .accordion-body {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 1.4rem;
+  }
+  .accordion-item.open .accordion-body {
+    max-height: 200px;
+    padding: 0 1.4rem 1.2rem 1.4rem;
+  }
+  .accordion-body p {
+    font-size: 0.85rem; color: var(--muted); line-height: 1.7;
+    padding-left: calc(38px + 0.9rem);
+  }
 
   /* ── EXPERIENCE ── */
   #experience {
